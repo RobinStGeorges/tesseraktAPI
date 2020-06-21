@@ -31,8 +31,14 @@ $router->group(['prefix' => 'exercices'], function($router){
     //retourne tous les exercices
     $router->get('/', 'ExercicesController@showAllExercices');
 
-//retourne un cours avec l'id
+//retourne un exercice avec l'id
     $router->get('{id}', 'ExercicesController@showOneExerciceBy');
+});
+
+//REPONSE
+$router->group(['prefix' => 'reponse'], function($router){
+//retourne true/false si la reponse est bonne/fausse
+    $router->get('{email}/{id}', 'ReponseController@isValideResponse');
 });
 
 
