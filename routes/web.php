@@ -17,15 +17,24 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//retourne tous les cours
-$router->get('cours', 'CoursController@showAllCours');
+//COURS
+$router->group(['prefix' => 'cours'], function($router){
+    //retourne tous les cours
+    $router->get('/', 'CoursController@showAllCours');
 
 //retourne un cours avec l'id
-$router->get('cours/{id}', 'CoursController@showOneCoursBy');
+    $router->get('{id}', 'CoursController@showOneCoursBy');
+});
 
-//retourne tous les exercices
-$router->get('exercices', 'ExercicesController@showAllExercices');
+//EXERCICE
+$router->group(['prefix' => 'exercices'], function($router){
+    //retourne tous les exercices
+    $router->get('/', 'ExercicesController@showAllExercices');
 
 //retourne un cours avec l'id
-$router->get('exercices/{id}', 'ExercicesController@showOneExerciceBy');
+    $router->get('{id}', 'ExercicesController@showOneExerciceBy');
+});
+
+
+
 
