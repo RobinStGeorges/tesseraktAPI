@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 
-class CoursController extends Controller
+class ExercicesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,15 +16,13 @@ class CoursController extends Controller
         //
     }
 
-    //
-
-    public function showAllCours(){
-        $results = DB::select("SELECT * FROM cours");
+    public function showAllExercices(){
+        $results = DB::select("SELECT * FROM exercices");
         return $results;
     }
 
-    public function showOneCoursBy($id){
-        $results = DB::select("select * from cours where id_cours = ".$id);
+    public function showOneExerciceBy($id){
+        $results = DB::select("SELECT * FROM exercices where id_exercice= ".$id);
         return $results;
     }
 

@@ -17,13 +17,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-//$router->group(['prefix' => 'api'], function($router){
-//    $router->get('cours', 'CoursController@showCours');
-//});
+//retourne tous les cours
+$router->get('cours', 'CoursController@showAllCours');
 
-//$router->get('/cours/{id}', function ($id) use ($router) {
-//    return ;
-//});
+//retourne un cours avec l'id
+$router->get('cours/{id}', 'CoursController@showOneCoursBy');
 
-$router->get('cours/{id}', 'CoursController@showAllCours');
-//Route::get('cours', array('uses' => 'CoursController@showAllCours'));
+//retourne tous les exercices
+$router->get('exercices', 'ExercicesController@showAllExercices');
+
+//retourne un cours avec l'id
+$router->get('exercices/{id}', 'ExercicesController@showOneExerciceBy');
+
