@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\CoursController as CC;
+header("Access-Control-Allow-Origin: *");
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,6 +13,8 @@ use App\Http\Controllers\CoursController as CC;
 */
 
 use FastRoute\Route;
+
+header("Access-Control-Allow-Origin: *");
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
@@ -39,6 +42,13 @@ $router->group(['prefix' => 'exercices'], function($router){
 $router->group(['prefix' => 'reponse'], function($router){
 //retourne true/false si la reponse est bonne/fausse
     $router->get('{email}/{id}', 'ReponseController@isValideResponse');
+});
+
+//USER
+$router->group(['prefix' => 'user'], function($router){
+    $router->get('isValid/{userMail}', 'UserController@getIsValide');
+    $router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
+    $router->get('response/{userMail}', 'UserController@getUserResponseByMail');
 });
 
 

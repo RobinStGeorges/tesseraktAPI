@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+header("Access-Control-Allow-Origin: *");
+
 use Illuminate\Support\Facades\DB;
 
 class CoursController extends Controller
@@ -18,9 +20,12 @@ class CoursController extends Controller
 
     //
 
+
+
     public function showAllCours(){
         $results = DB::select("SELECT * FROM cours");
-        return $results;
+        $resultsArray = json_decode(json_encode($results), true);
+        return $resultsArray;
     }
 
     public function showOneCoursBy($id){
