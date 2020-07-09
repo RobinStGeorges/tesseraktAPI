@@ -15,10 +15,7 @@ class CoursController extends Controller
      */
     public function __construct()
     {
-        //
     }
-
-    //
 
 
 

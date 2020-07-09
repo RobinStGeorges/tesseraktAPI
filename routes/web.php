@@ -29,13 +29,17 @@ $router->group(['prefix' => 'cours'], function($router){
     $router->get('{id}', 'CoursController@showOneCoursBy');
 });
 
+
 //EXERCICE
 $router->group(['prefix' => 'exercices'], function($router){
     //retourne tous les exercices
     $router->get('/', 'ExercicesController@showAllExercices');
-
 //retourne un exercice avec l'id
     $router->get('{id}', 'ExercicesController@showOneExerciceBy');
+//set is started and date start to now
+    $router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart');
+//    createNewUserDataEntry
+    $router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
 });
 
 //REPONSE
@@ -49,6 +53,9 @@ $router->group(['prefix' => 'user'], function($router){
     $router->get('isValid/{userMail}', 'UserController@getIsValide');
     $router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
     $router->get('response/{userMail}', 'UserController@getUserResponseByMail');
+    $router->get('userdata/{userMail}/{id}', 'UserController@getuserDataByMailAndIdExercice');
+    $router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail');
+
 });
 
 
