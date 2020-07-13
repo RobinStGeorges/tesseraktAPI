@@ -20,9 +20,9 @@ $router->get('/', function () use ($router) {
     return "Tesserakt PHP API";
 });
 
-$router->get('/test', function () use ($router) {
-    return "test";
-});
+
+$router->get('/', 'Controller@testing');
+
 
 //COURS
 $router->group(['prefix' => 'cours'], function($router){
