@@ -21,16 +21,13 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/test', 'Controller@testing');
-
-
 //COURS
 $router->group(['prefix' => 'cours'], function($router){
-    //retourne tous les cours
+//retourne tous les cours
     $router->get('/', 'CoursController@showAllCours');
-
 //retourne un cours avec l'id
     $router->get('{id}', 'CoursController@showOneCoursBy');
+    $router->get('/test', 'Controller@testing');
 });
 
 
