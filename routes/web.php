@@ -21,7 +21,7 @@ $router->get('/', function () use ($router) {
 });
 
 
-$router->get('/', 'Controller@testing');
+$router->get('/test', 'Controller@testing');
 
 
 //COURS
