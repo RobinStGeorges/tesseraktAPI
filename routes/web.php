@@ -16,7 +16,9 @@ use FastRoute\Route;
 
 header("Access-Control-Allow-Origin: *");
 
-$router->get('/', 'CoursController@showAllCours');
+$router->get('/', function () use ($router) {
+    return "Tesserakt PHP API";
+});
 
 //COURS
 $router->group(['prefix' => 'cours'], function($router){
