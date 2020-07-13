@@ -20,6 +20,10 @@ $router->get('/', function () use ($router) {
     return "Tesserakt PHP API";
 });
 
+$router->get('/test', function () use ($router) {
+    return "test";
+});
+
 //COURS
 $router->group(['prefix' => 'cours'], function($router){
     //retourne tous les cours
