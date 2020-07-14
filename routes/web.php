@@ -41,6 +41,8 @@ $router->group(['prefix' => 'exercices'], function($router){
     $router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart');
 //    createNewUserDataEntry
     $router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
+//    met l'exercice a l'etat de is_finished
+    $router->get('setIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
 });
 
 //REPONSE
