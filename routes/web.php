@@ -23,13 +23,6 @@ $router->get('/', function () use ($router) {
 $router->get('/cours', 'CoursController@showAllCours'); //done
 $router->get('getCours/{id}', 'CoursController@showOneCoursBy'); //done
 
-//$router->group(['prefix' => 'cours'], function($router){
-//retourne tous les cours
-//    $router->get('/', 'CoursController@showAllCours');
-//retourne un cours avec l'id
-//    $router->get('{id}', 'CoursController@showOneCoursBy');
-//});
-
 
 //EXERCICE
 
@@ -43,15 +36,10 @@ $router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDat
 $router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
 //    met l'exercice a l'etat de is_finished
 $router->get('exercicesSetIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
-//$router->group(['prefix' => 'exercices'], function($router){
-//});
 
 //REPONSE
 $router->get('/isValidResponse/{email}/{id}', 'ReponseController@isValideResponse');
 
-//$router->group(['prefix' => 'reponse'], function($router){
-//retourne true/false si la reponse est bonne/fausse
-//});
 
 //USER
 
@@ -60,8 +48,7 @@ $router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
 $router->get('getUserResponse/{userMail}', 'UserController@getUserResponseByMail');
 $router->get('userdata/{userMail}/{id}', 'UserController@getuserDataByMailAndIdExercice');
 $router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail');
-//$router->group(['prefix' => 'user'], function($router){
-//});
+
 
 
 
