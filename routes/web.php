@@ -22,44 +22,48 @@ $router->get('/', function () use ($router) {
 
 
 //COURS
-$router->group(['prefix' => 'cours'], function($router){
+$router->get('/cours', 'CoursController@showAllCours'); //done
+$router->get('getCours/{id}', 'CoursController@showOneCoursBy'); //done
+
+//$router->group(['prefix' => 'cours'], function($router){
 //retourne tous les cours
-    $router->get('/', 'CoursController@showAllCours');
+//    $router->get('/', 'CoursController@showAllCours');
 //retourne un cours avec l'id
-    $router->get('{id}', 'CoursController@showOneCoursBy');
-    $router->get('/test', 'Controller@testing');
-});
+//    $router->get('{id}', 'CoursController@showOneCoursBy');
+//});
 
 
 //EXERCICE
-$router->group(['prefix' => 'exercices'], function($router){
-    //retourne tous les exercices
-    $router->get('/', 'ExercicesController@showAllExercices');
+
+//retourne tous les exercices
+$router->get('/exercices', 'ExercicesController@showAllExercices'); //done
 //retourne un exercice avec l'id
-    $router->get('{id}', 'ExercicesController@showOneExerciceBy');
+$router->get('getExercice/{id}', 'ExercicesController@showOneExerciceBy'); //done
 //set is started and date start to now
-    $router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart');
+$router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart');
 //    createNewUserDataEntry
-    $router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
+$router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
 //    met l'exercice a l'etat de is_finished
-    $router->get('setIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
-});
+$router->get('exercicesSetIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
+//$router->group(['prefix' => 'exercices'], function($router){
+//});
 
 //REPONSE
-$router->group(['prefix' => 'reponse'], function($router){
+$router->get('/isValidResponse/{email}/{id}', 'ReponseController@isValideResponse');
+
+//$router->group(['prefix' => 'reponse'], function($router){
 //retourne true/false si la reponse est bonne/fausse
-    $router->get('{email}/{id}', 'ReponseController@isValideResponse');
-});
+//});
 
 //USER
-$router->group(['prefix' => 'user'], function($router){
-    $router->get('isValid/{userMail}', 'UserController@getIsValide');
-    $router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
-    $router->get('response/{userMail}', 'UserController@getUserResponseByMail');
-    $router->get('userdata/{userMail}/{id}', 'UserController@getuserDataByMailAndIdExercice');
-    $router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail');
 
-});
+$router->get('isValid/{userMail}', 'UserController@getIsValide');
+$router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
+$router->get('getUserResponse/{userMail}', 'UserController@getUserResponseByMail');
+$router->get('userdata/{userMail}/{id}', 'UserController@getuserDataByMailAndIdExercice');
+$router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail');
+//$router->group(['prefix' => 'user'], function($router){
+//});
 
 
 
