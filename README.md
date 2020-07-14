@@ -2,6 +2,7 @@
 
 ##to install
 composer install
+add a .env with database values
 
 ##to serve 
  php -S localhost:3000 -t public
