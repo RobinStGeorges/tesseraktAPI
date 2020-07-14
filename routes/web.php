@@ -1,7 +1,5 @@
 <?php
 
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
-
 use App\Http\Controllers\CoursController as CC;
 
 /*
