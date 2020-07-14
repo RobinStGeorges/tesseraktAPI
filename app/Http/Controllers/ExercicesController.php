@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-header("Access-Control-Allow-Origin: https://tesserakt-6980c.firebaseapp.com");
+header("Access-Control-Allow-Origin: *");
 
 use DateTime;
 use Illuminate\Support\Facades\DB;
