@@ -9,8 +9,7 @@ class Kernel extends ConsoleKernel
 {
 
     protected $middleware  = [
-//..
-//.... other middlewares
+        \Barryvdh\Cors\HandleCors::class,
         \App\Http\Middleware\CorsMiddleware::class
     ];
 
