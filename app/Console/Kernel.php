@@ -3,14 +3,14 @@
 namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
 use Laravel\Lumen\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
 
     protected $middleware  = [
-//..
-//.... other middlewares
+        CheckForMaintenanceMode::class,
         \App\Http\Middleware\CorsMiddleware::class
     ];
 
