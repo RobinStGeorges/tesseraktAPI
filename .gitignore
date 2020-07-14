@@ -2,7 +2,7 @@
 /.idea
 Homestead.json
 Homestead.yaml
-.env
+
 .phpunit.result.cache
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
