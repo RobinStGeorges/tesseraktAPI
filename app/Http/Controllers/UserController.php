@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-header("Access-Control-Allow-Origin: https://tesserakt-6980c.firebaseapp.com");
 
 use Illuminate\Support\Facades\DB;
 
