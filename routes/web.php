@@ -18,6 +18,14 @@ header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Author
 
 use FastRoute\Route;
 
+$app->options(
+    '*',
+    [
+        'middleware' => 'cors', function(){
+        function() { return response('', 200); }
+        }
+   ]
+);
 
 $router->get('/', function () use ($router) {
     return "Tesserakt PHP API";
