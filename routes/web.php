@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\CoursController as CC;
 
 /*
