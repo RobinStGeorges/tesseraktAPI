@@ -21,7 +21,7 @@ class CorsMiddleware
             'Access-Control-Allow-Credentials' => 'true',
             'Access-Control-Max-Age'           => '86400',
             'Access-Control-Allow-Headers'     => 'Content-Type, Authorization, X-Requested-With',
-            'Content-Type' => 'application/x-www-form-urlencoded'
+//            'Content-Type' => 'application/x-www-form-urlencoded'
         ];
 
         if ($request->isMethod('OPTIONS'))

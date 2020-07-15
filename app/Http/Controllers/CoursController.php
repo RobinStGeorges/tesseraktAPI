@@ -20,13 +20,11 @@ class CoursController extends Controller
 
     public function showAllCours(){
         $results = DB::select("SELECT * FROM cours");
-        $resultsArray = json_decode(json_encode($results), true);
-        return $resultsArray;
+        return json_decode(json_encode($results), true);
     }
 
     public function showOneCoursBy($id){
-        $results = DB::select("select * from cours where id_cours = ".$id);
-        return $results;
+        return DB::select("select * from cours where id_cours = ".$id);
     }
 
 

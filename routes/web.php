@@ -21,6 +21,7 @@ $router->get('/', function () use ($router) {
 
 
 //COURS
+
 $router->get('/cours', 'CoursController@showAllCours'); //done
 $router->get('getCours/{id}', 'CoursController@showOneCoursBy'); //done
 
@@ -39,7 +40,9 @@ $router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUse
 $router->get('exercicesSetIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
 
 //REPONSE
+
 $router->get('/isValidResponse/{email}/{id}', 'ReponseController@isValideResponse');
+$router->get('/getTimeToSolve/{email}', 'ReponseController@getTimeToSolve');
 
 
 //USER

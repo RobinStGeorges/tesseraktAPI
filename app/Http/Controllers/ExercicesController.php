@@ -17,13 +17,11 @@ class ExercicesController extends Controller
     }
 
     public function showAllExercices(){
-        $results = DB::select("SELECT * FROM exercices");
-        return $results;
+        return DB::select("SELECT * FROM exercices");
     }
 
     public function showOneExerciceBy($id){
-        $results = DB::select("SELECT * FROM exercices where id_exercice= ".$id);
-        return $results;
+        return DB::select("SELECT * FROM exercices where id_exercice= ".$id);
     }
 
     public function createNewUserDataEntry($id, $email){
@@ -41,7 +39,7 @@ class ExercicesController extends Controller
 
     public function setIsFinished($id, $email){
         $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $email));
-        $results = DB::select("update userdata set is_finished = true, date_end = CURRENT_TIMESTAMP where id_exercice = ".$id." and email like '".$emailDecoded."'");
+        $results = DB::update("update userdata set is_finished = true, date_end = CURRENT_TIMESTAMP where id_exercice = ".$id." and email like '".$emailDecoded."'");
         return $results;
     }
 

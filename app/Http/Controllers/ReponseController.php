@@ -29,6 +29,11 @@ class ReponseController extends Controller
         return $exerciceReponse[0]->value;
     }
 
+    public function getTimeToSolve($email){
+        $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $email));
+        return DB::select("SELECT id_exercice, date_start, date_end FROM userdata where email like'".$emailDecoded."'");
+    }
+
     private function getJsonFromuserResponse($userResponse){
         $array = array();
         foreach ($userResponse as $response){
