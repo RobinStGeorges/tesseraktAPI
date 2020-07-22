@@ -39,6 +39,11 @@ class UserController extends Controller
         return $response;
     }
 
+    public function getUserResponse(){
+        $userresponse = DB::select("SELECT * FROM userresponse ");
+        return $userresponse;
+    }
+
     public function getuserDataByMailAndIdExercice($userMail, $id){
         $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $userMail));
         $response = DB::select("SELECT * FROM userdata where email like '".$emailDecoded."' and id_exercice = ".$id);
