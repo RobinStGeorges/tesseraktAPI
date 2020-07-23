@@ -79,5 +79,13 @@ class ReponseController extends Controller
             return false;
         }
     }
+
+    public function setCubesValues($value){
+        $tabVal = explode(';',  ltrim($value, ';'));
+        print_r($tabVal);
+        for ($i = 0; $i< sizeof($tabVal);$i++){
+
+        }
+    }
 }
 
