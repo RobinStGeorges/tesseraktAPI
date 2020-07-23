@@ -26,6 +26,7 @@ class ExercicesController extends Controller
 
     public function createNewUserDataEntry($id, $email){
         $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $email));
+
         $date = new DateTime();
         $results = DB::update("insert into userdata (id_exercice, email) values (?, ?)", [$id, $emailDecoded] );
         return $results;
@@ -40,10 +41,8 @@ class ExercicesController extends Controller
     public function setIsFinished($id, $email){
         $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $email));
         $results = DB::update("update userdata set is_finished = true, date_end = CURRENT_TIMESTAMP where id_exercice = ".$id." and email like '".$emailDecoded."'");
+
         return $results;
     }
-
-
-
 
 }

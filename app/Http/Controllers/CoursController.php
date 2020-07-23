@@ -16,8 +16,6 @@ class CoursController extends Controller
     {
     }
 
-
-
     public function showAllCours(){
         $results = DB::select("SELECT * FROM cours");
         return json_decode(json_encode($results), true);

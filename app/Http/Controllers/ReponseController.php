@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use DateTime;
 use Illuminate\Support\Facades\DB;
 
 class ReponseController extends Controller
@@ -31,7 +32,30 @@ class ReponseController extends Controller
 
     public function getTimeToSolve($email){
         $emailDecoded = str_replace('%point', '.',str_replace('%40', '@', $email));
-        return DB::select("SELECT id_exercice, date_start, date_end FROM userdata where email like'".$emailDecoded."'");
+        $result = DB::select("SELECT id_exercice, date_start, date_end FROM userdata where email like'".$emailDecoded."'");
+        $arrayTimeToSolve = [];
+
+        foreach($result as $r){
+
+            if($r->date_start != NULL && $r->date_end != NULL){
+                try {
+                    $datetimeStart = new DateTime($r->date_start);
+                } catch (\Exception $e) {
+                }
+                try {
+                    $datetimeEnd = new DateTime($r->date_end);
+                } catch (\Exception $e) {
+                }
+                $interval = $datetimeStart->diff($datetimeEnd);
+                $year = intval($interval->format('%Y'));
+                $month = intval($interval->format('%m'));
+                $days = intval($interval->format('%d'));
+                $hours = intval($interval->format('%H'));
+                $tmpTotal = 8760*$year + 730*$month + 24*$days + $hours;
+                array_push($arrayTimeToSolve, $tmpTotal);
+            }
+        }
+        return json_encode($arrayTimeToSolve);
     }
 
     private function getJsonFromuserResponse($userResponse){
