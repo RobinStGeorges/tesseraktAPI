@@ -82,10 +82,18 @@ class ReponseController extends Controller
 
     public function setCubesValues($value){
         $tabVal = explode(';',  ltrim($value, ';'));
-        print_r($tabVal);
-        for ($i = 0; $i< sizeof($tabVal);$i++){
-
+        for ($i = 0; $i< sizeof($tabVal);$i = $i + 2){
+            $tabi = $tabVal[$i];
+            $tabiplusun = '"'.$tabVal[$i+1].'"';
+            if (empty(DB::select("SELECT * FROM idcudetoaction where id_cube = ".$tabi))){
+                $result = DB::insert('insert into idcudetoaction (id_cube, action) values ('.$tabi.', '.$tabiplusun.')');
+            }
+            else{
+                $result = DB::update('update idcudetoaction set action = '.$tabiplusun.' where id_cube = ?', [$tabi]);
+            }
         }
+        return $result;
     }
+
 }
 
