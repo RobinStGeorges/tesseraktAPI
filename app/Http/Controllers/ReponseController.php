@@ -95,5 +95,13 @@ class ReponseController extends Controller
         return $result;
     }
 
+    public function getCubesValues($id){
+        return DB::select("select action from idcudetoaction where id_cube = ".$id);
+    }
+
+    public function getCubesValuesAll(){
+        return DB::select("select id_cube, action from idcudetoaction ");
+    }
+
 }
 

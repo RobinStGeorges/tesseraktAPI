@@ -45,7 +45,8 @@ $router->get('/isValidResponse/{email}/{id}', 'ReponseController@isValideRespons
 $router->get('/getTimeToSolve/{email}', 'ReponseController@getTimeToSolve');
 $router->get('/getUserResponse', 'UserController@getUserResponse');
 $router->get('/setCubesValues/{value}', 'ReponseController@setCubesValues');
-
+$router->get('/getCubesValues/{id}', 'ReponseController@getCubesValues');
+$router->get('/getCubesValuesAll/', 'ReponseController@getCubesValuesAll');
 
 //USER
 
