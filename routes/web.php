@@ -33,11 +33,11 @@ $router->get('/exercices', 'ExercicesController@showAllExercices'); //done
 //retourne un exercice avec l'id
 $router->get('getExercice/{id}', 'ExercicesController@showOneExerciceBy'); //done
 //set is started and date start to now
-$router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart');
+$router->get('setIsStarted/{id}/{email}', 'ExercicesController@setIsStartedEtDateStart'); //doene
 //    createNewUserDataEntry
-$router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry');
+$router->get('createuserdatarow/{id}/{email}', 'ExercicesController@createNewUserDataEntry'); // done
 //    met l'exercice a l'etat de is_finished
-$router->get('exercicesSetIsFinished/{id}/{email}', 'ExercicesController@setIsFinished');
+$router->get('exercicesSetIsFinished/{id}/{email}', 'ExercicesController@setIsFinished'); // done
 
 //REPONSE
 
@@ -51,10 +51,10 @@ $router->get('/getCubesValuesAll/', 'ReponseController@getCubesValuesAll');
 //USER
 
 $router->get('isValid/{userMail}', 'UserController@getIsValide');
-$router->get('isAdmin/{userMail}', 'UserController@getIsAdmin');
-$router->get('getUserResponse/{userMail}', 'UserController@getUserResponseByMail');
+$router->get('isAdmin/{userMail}', 'UserController@getIsAdmin'); //done
+$router->get('getUserResponse/{userMail}', 'UserController@getUserResponseByMail'); //done
 $router->get('userdata/{userMail}/{id}', 'UserController@getuserDataByMailAndIdExercice');
-$router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail');
+$router->get('delete/{userMail}', 'UserController@deleteUserDataWithEmail'); //done
 
 
 
